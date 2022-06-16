@@ -1,5 +1,12 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  const seenNumbers = new Set();
+  for (const number of array) {
+    const complement = target - number;
+    if (seenNumbers.has(complement)) return true;
+    seenNumbers.add(number);
+  }
+  return false;
 }
 
 /* 
@@ -12,7 +19,10 @@ function hasTargetSum(array, target) {
 
 /*
   Add written explanation of your solution here
-*/
+  first initialize a variable called sum to 0
+  then loop through the array
+  if the sum is less than the target
+    add the current element to the sum*/
 
 // You can run `node index.js` to view these console logs
 if (require.main === module) {
